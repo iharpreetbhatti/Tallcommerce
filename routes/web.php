@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Pages\Admin\Dashboard;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-Route::get('/admin/dashboard', Dashboard::class)
+Route::get('/admin', Dashboard::class)
     ->name('dashboard');
+
+Route::redirect('/admin/dashboard', '/admin');
