@@ -1,8 +1,10 @@
 <div class="fixed inset-0 z-40 flex items-center justify-center">
-  <div class="absolute inset-0 bg-black opacity-50" wire:click="$dispatch('toggleCreateModal')"></div>
+  <div class="absolute inset-0 bg-black opacity-50" wire:click="$dispatch('toggleProductModal')"></div>
 
   <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl z-50 p-6">
-    <h3 class="text-lg font-semibold mb-4">Add New Product</h3>
+    <h3 class="text-lg font-semibold mb-4">
+      {{ $productId ? 'Edit Product' : 'Add New Product' }}
+    </h3>
 
     <form wire:submit.prevent="saveProduct">
       <div class="space-y-4">
@@ -52,7 +54,7 @@
       </div>
 
       <div class="mt-6 flex justify-end space-x-3">
-        <button type="button" wire:click="$dispatch('toggleCreateModal')"
+        <button type="button" wire:click="$dispatch('toggleProductModal')"
           class="px-4 py-2 rounded bg-gray-200 text-gray-800 hover:bg-gray-300">Cancel</button>
         <button type="submit" class="px-4 py-2 rounded bg-violet-500 text-white hover:bg-violet-700">Save
           Product</button>
