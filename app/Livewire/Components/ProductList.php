@@ -10,12 +10,21 @@ use Livewire\WithPagination;
 class ProductList extends Component
 {
     use WithPagination;
-    // protected $listners = ['productCreated' => 'refreshList'];
 
     #[On('productCreated')]
+    #[On('productUpdated')]
     public function refreshList()
     {
-        $this->resetPage();
+
+    }
+
+    public function deleteProduct($productId)
+    {
+        $product = Product::find($productId);
+        if ($product) {
+            $product->delete();
+            $this->refreshList();
+        }
     }
 
     public function render()
