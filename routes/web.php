@@ -8,7 +8,7 @@ use App\Livewire\Pages\Login;
 Route::get('/admin/dashboard', Dashboard::class)->middleware('auth')
     ->name('dashboard');
 
-Route::get('/admin/products', Products::class)->middleware('auth')
+Route::get('/admin/products', Products::class)
     ->name('products');
 
 Route::get('/login', Login::class)->middleware('guest')->name('login');
