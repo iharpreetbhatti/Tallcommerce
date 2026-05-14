@@ -7,6 +7,7 @@
 
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <title>{{ $title ?? 'Page Title' }} - Tallcommerce</title>
+  @livewireStyles()
 </head>
 
 <body>
