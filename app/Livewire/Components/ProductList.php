@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Components;
 
+use Illuminate\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use App\Models\Product;
@@ -11,25 +12,17 @@ class ProductList extends Component
 {
     use WithPagination;
 
-    #[On('productCreated')]
-    #[On('productUpdated')]
-    public function refreshList()
-    {
-
-    }
-
-    public function deleteProduct($productId)
+    public function deleteProduct($productId) : void
     {
         $product = Product::find($productId);
-        if ($product) {
-            $product->delete();
-            $this->refreshList();
-        }
+        $product?->delete();
     }
 
-    public function render()
+    #[On('productCreated')]
+    #[On('productUpdated')]
+    public function render(): View
     {
-        $products = Product::orderBy('created_at', 'desc')->paginate(10);
+        $products = Product::latest()->paginate(10);
         return view('livewire.components.product-list')->with('products', $products);
     }
 }
