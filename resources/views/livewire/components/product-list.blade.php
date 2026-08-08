@@ -25,7 +25,7 @@
                 : '<span class="bg-red-100 text-xs text-red-800 font-semibold py-1 px-2 rounded">Out of stock</span>' !!}</td>
             <td class="flex items-center justify-center gap-2 text-sm py-2 px-4 text-center font-medium">
               <button wire:click="$dispatch('toggleProductModal', { productId: {{ $product->id }} })"
-                class="inline-block px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer">Edit</a>
+                      class="inline-block px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer">Edit</button>
                 <button wire:click="deleteProduct({{ $product->id }})"
                   wire:confirm="Are you sure you want to delete this product?" wire:loading.attr="disabled"
                   class="inline-block px-4 py-2 bg-red-500 text-white rounded-md cursor-pointer">Delete</button>
