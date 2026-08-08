@@ -3,11 +3,11 @@
 namespace App\Livewire\Pages\Admin;
 
 use App\Livewire\Components\ProductFormModal;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\On;
-use App\Models\Product;
 
 #[Layout('layouts.app')]
 #[Title('Products')]
@@ -18,7 +18,7 @@ class Products extends Component
     public ?array $flash_message = null;
 
     #[On('toggleProductModal')]
-    public function toggleProductModal(ProductFormModal $productFormModal, $productId = null)
+    public function toggleProductModal(ProductFormModal $productFormModal, $productId = null): void
     {
         $this->editingProductId = $productId;
         $this->showProductModal = !$this->showProductModal;
@@ -29,12 +29,12 @@ class Products extends Component
 
     #[On('productCreated')]
     #[On('productUpdated')]
-    public function handleProductChange($flash_message)
+    public function handleProductChange($flash_message) : void
     {
         $this->flash_message = $flash_message;
     }
 
-    public function render()
+    public function render() : View
     {
         return view('livewire.pages.admin.products');
     }
