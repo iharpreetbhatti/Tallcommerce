@@ -1,4 +1,21 @@
 <div class="mx-auto p-8 rounded-xl border border-gray-200 bg-white">
+  <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
+    <h3 class="text-md">All Products</h3>
+    <div class="flex gap-4">
+      <form wire:submit>
+        <input type="text" name="search" placeholder="Search products..." wire:model.live.debounce.500ms="searchTerm"
+          class="mb-4 px-6 py-2 pl-10 text-sm border border-gray-300 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </form>
+      <form wire:submit>
+        <select name="category" wire:model.live="selectedCategory" class="mb-4 px-6 py-2 pl-10 text-sm border border-gray-300 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="" selected>All Categories</option>
+            @foreach($this->getProductCategories() as $category)
+                <option value="{{$category['id']}}">{{$category['name']}}</option>
+            @endforeach
+        </select>
+      </form>
+    </div>
+  </div>
   <div class="overflow-x-auto mb-12">
     <table class="w-full mx-auto table-auto md:table-fixed">
       <thead>
