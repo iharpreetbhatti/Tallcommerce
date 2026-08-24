@@ -2,7 +2,7 @@
   <div class="overflow-x-auto mb-12">
     <table class="w-full mx-auto table-auto md:table-fixed">
       <thead>
-        <tr class="border-b-1 border-gray-300
+        <tr class="border-b border-gray-300
       hover:bg-gray-100">
           <th class="text-left text-md font-semibold py-2 px-4">Product</th>
           <th class="text-center text-md font-semibold py-2 px-4">Category</th>
@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         @foreach ($products as $product)
-          <tr class="border-b-1 border-gray-300 last:border-b-0 hover:bg-gray-100"
+          <tr class="border-b border-gray-300 hover:bg-gray-100"
             wire:key="product-{{ $product->id }}">
             <td class="text-sm py-2 px-4">{{ ucfirst($product->name) }}</td>
             <td class="text-sm py-2 px-4 text-center">{{ $product->category->name }}</td>
