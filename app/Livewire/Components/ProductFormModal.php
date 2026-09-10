@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Components;
 
-use Livewire\Attributes\On;
+use Illuminate\View\View;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\Product;
@@ -17,7 +17,7 @@ class ProductFormModal extends Component
     public $stock = '';
     public $description = '';
 
-    public function mount($productId = null)
+    public function mount($productId = null): void
     {
         if ($productId) {
             $product = Product::findOrFail($this->productId);
@@ -40,7 +40,7 @@ class ProductFormModal extends Component
         'description' => 'nullable|string',
     ];
 
-    public function resetForm()
+    public function resetForm(): void
     {
         $this->name = '';
         $this->category_id = '';
@@ -51,7 +51,7 @@ class ProductFormModal extends Component
         $this->resetValidation();
     }
 
-    public function saveProduct()
+    public function saveProduct(): void
     {
         $this->validate();
         $this->dispatch('toggleProductModal');
@@ -89,7 +89,7 @@ class ProductFormModal extends Component
             ]);
         }
     }
-    public function render()
+    public function render(): View
     {
         $categories = Category::where('is_active', true)->get();
         return view('livewire.components.product-form-modal', ['categories' => $categories]);
