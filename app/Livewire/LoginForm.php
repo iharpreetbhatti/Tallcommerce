@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -30,7 +31,7 @@ class LoginForm extends Component
         $this->addError('email', 'The provided credentials do not match our records.');
     }
 
-    public function render()
+    public function render() : View
     {
         return view('livewire.login-form');
     }
