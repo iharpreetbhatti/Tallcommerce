@@ -15,7 +15,7 @@ class LoginForm extends Component
     #[Validate('required|min:6')]
     public $password = '';
 
-    public function login()
+    public function login(): void
     {
         $credentials = [
             'email' => $this->email,
@@ -24,8 +24,8 @@ class LoginForm extends Component
 
         if (Auth::attempt($credentials)) {
             session()->regenerate();
-
-            return $this->redirectIntended('/admin/dashboard', navigate: true);
+            $this->redirectIntended('/admin/dashboard', navigate: true);
+            return;
         }
 
         $this->addError('email', 'The provided credentials do not match our records.');
