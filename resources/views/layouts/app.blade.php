@@ -30,6 +30,7 @@
     ]"/>
   </div>
   <div class="col-span-10 xl:col-span-8 bg-gray-50 min-h-screen">
+    <x-topbar />
     {{ $slot }}
   </div>
 </div>
