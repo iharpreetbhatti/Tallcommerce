@@ -10,13 +10,24 @@
   <title>{{ $title ?? 'Page Title' }} - Tallcommerce</title>
 </head>
 
-<body>
+<body
+  x-data="{ sidebarOpen: window.matchMedia('(min-width: 1280px)').matches }"
+  @resize.window="sidebarOpen = window.matchMedia('(min-width: 1280px)').matches"
+>
 <div class="grid grid-cols-10 w-full">
-  <div class="hidden xl:block col-span-2">
+  <div class="col-span-10 xl:col-span-2">
+    <div
+      x-cloak
+      x-show="sidebarOpen"
+      x-transition.opacity
+      x-on:click="sidebarOpen = false"
+      class="fixed inset-0 z-30 bg-gray-300/10 backdrop-blur-xs xl:hidden"
+      aria-hidden="true"
+    ></div>
     <x-sidebar :links="[
-  'Dashboard' => route('dashboard'),
-  'Products' => route('products'),
-]"/>
+      'Dashboard' => route('dashboard'),
+      'Products' => route('products'),
+    ]"/>
   </div>
   <div class="col-span-10 xl:col-span-8 bg-gray-50 min-h-screen">
     {{ $slot }}
