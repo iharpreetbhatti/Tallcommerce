@@ -11,8 +11,17 @@
 </head>
 
 <body>
-{{ $slot }}
-
+<div class="grid grid-cols-10 w-full">
+  <div class="hidden xl:block col-span-2">
+    <x-sidebar :links="[
+  'Dashboard' => route('dashboard'),
+  'Products' => route('products'),
+]"/>
+  </div>
+  <div class="col-span-10 xl:col-span-8 bg-gray-50 min-h-screen">
+    {{ $slot }}
+  </div>
+</div>
 @livewireScripts
 </body>
 
