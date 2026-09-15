@@ -9,7 +9,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\On;
 
-#[Layout('layouts.app')]
+#[Layout('layouts.admin.app')]
 #[Title('Products')]
 class Products extends Component
 {
