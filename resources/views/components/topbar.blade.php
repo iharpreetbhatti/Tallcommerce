@@ -15,7 +15,8 @@
       </svg>
     </button>
 
-    <div class="ml-auto flex items-center gap-3">
+    <div class="relative ml-auto" x-data="{open: false}">
+      <div class=" flex items-center gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-medium" x-on:click="open = !open">
       <div class="flex size-9 items-center justify-center rounded-full bg-violet-100 text-violet-600">
         <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <circle cx="12" cy="8" r="3" />
@@ -26,6 +27,13 @@
       <div class="hidden min-w-0 sm:block">
         <p class="truncate text-sm font-medium text-gray-900">{{ $user->name }}</p>
         <p class="truncate text-xs text-gray-500">{{ $user->email }}</p>
+      </div>
+      </div>
+
+      <div class="absolute min-w-24 sm:w-full top-full right-0 mt-4 bg-white border border-gray-300 rounded-md p-2" x-show.important="open" @click.outside="open = false" x-transition>
+        @if(auth()->user())
+        <livewire:logout />
+        @endif
       </div>
     </div>
   </div>
