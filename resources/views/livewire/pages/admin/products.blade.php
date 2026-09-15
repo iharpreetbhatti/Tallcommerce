@@ -1,4 +1,4 @@
-<div class="bg-gray-50 py-4 min-h-screen">
+<main class="bg-gray-50 py-4 min-h-screen">
   <!-- Add Product Modal -->
   @if ($showProductModal)
     <livewire:components.product-form-modal productId="{{ $editingProductId }}" />
@@ -25,4 +25,4 @@
     <!-- Product List Component -->
     <livewire:components.product-list />
   </div>
-</div>
+</main>
