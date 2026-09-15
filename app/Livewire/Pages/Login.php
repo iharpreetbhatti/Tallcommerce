@@ -7,7 +7,7 @@ use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 
-#[Layout('layouts.app')]
+#[Layout('layouts.auth')]
 class Login extends Component
 {
     #[Title('Login')]
