@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Order extends Model
 {
-    // The products that belongs to order
   use HasFactory;
+
   protected $fillable = [
     'status',
     'total_price',
@@ -18,6 +18,8 @@ class Order extends Model
 
   public function products(): BelongsToMany
   {
-    return $this->belongsToMany(Product::class);
+    return $this->belongsToMany(Product::class)
+      ->withPivot(['quantity', 'purchase_price'])
+      ->withTimestamps();
   }
 }
