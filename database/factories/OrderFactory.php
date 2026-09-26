@@ -10,7 +10,7 @@ class OrderFactory extends Factory
     {
         return [
             'status' => $this->faker->randomElement(['pending', 'processing', 'shipped', 'delivered', 'cancelled']),
-            'total_price' => $this->faker->randomFloat(2, 10, 1000),
+            'total_price' => 0.00,
             'shipping_address' => $this->faker->address(),
         ];
     }
