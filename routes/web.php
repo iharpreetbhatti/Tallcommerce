@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Pages\Admin\Dashboard;
 use App\Livewire\Pages\Admin\Products;
+use App\Livewire\Pages\Admin\Orders;
 use App\Livewire\Pages\Login;
 
 Route::get('/admin/dashboard', Dashboard::class)->middleware('auth')
@@ -10,6 +11,9 @@ Route::get('/admin/dashboard', Dashboard::class)->middleware('auth')
 
 Route::get('/admin/products', Products::class)->middleware('auth')
     ->name('products');
+
+Route::get('/admin/orders', Orders::class)->middleware('auth')
+    ->name('orders');
 
 Route::get('/login', Login::class)->middleware('guest')->name('login');
 
