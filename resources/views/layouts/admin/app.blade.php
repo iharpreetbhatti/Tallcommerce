@@ -27,6 +27,7 @@
     <x-sidebar :links="[
       'Dashboard' => route('dashboard'),
       'Products' => route('products'),
+      'Orders' => route('orders'),
     ]"/>
   </div>
   <div class="col-span-10 xl:col-span-8 bg-gray-50 min-h-screen">
