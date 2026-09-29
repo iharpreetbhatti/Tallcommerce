@@ -29,9 +29,9 @@
     </button>
   </div>
 
-  <ul class="m-4">
+  <nav class="m-4">
     @foreach($links as $label => $url)
-    <li><a href="{{$url}}" class="block my-1 px-4 py-2 rounded-md hover:bg-gray-100" wire:navigate>{{ucfirst($label)}}</a></li>
+    <a href="{{$url}}" class="block my-1 px-4 py-2 rounded-md hover:bg-gray-100" wire:navigate>{{ucfirst($label)}}</a>
     @endforeach
-  </ul>
+  </nav>
 </aside>
