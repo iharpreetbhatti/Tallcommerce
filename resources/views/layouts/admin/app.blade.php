@@ -13,6 +13,7 @@
 <body
   x-data="{ sidebarOpen: window.matchMedia('(min-width: 1280px)').matches }"
   @resize.window="sidebarOpen = window.matchMedia('(min-width: 1280px)').matches"
+  class="grid grid-cols-10 w-full"
 >
 <div class="grid grid-cols-10 w-full">
   <div class="col-span-10 xl:col-span-2">
