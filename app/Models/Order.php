@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OrderStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -21,5 +22,12 @@ class Order extends Model
     return $this->belongsToMany(Product::class)
       ->withPivot(['quantity', 'purchase_price'])
       ->withTimestamps();
+  }
+
+  public function casts(): array
+  {
+    return [
+      "status" => OrderStatus::class,
+    ];
   }
 }
